@@ -6,4 +6,3 @@ venv/*
 *.sh
 migrations
 migrations/*
-config.py
