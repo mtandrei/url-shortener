@@ -1,6 +1,3 @@
-"""Activates Flask App to Domain
-"""
-
 #!venv/bin/python
 from url import app
 
