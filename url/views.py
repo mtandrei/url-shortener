@@ -61,8 +61,8 @@ def red(url):
     if request.method == 'GET':
         url_map = URLMap.query.filter_by(short_url=url).first()
 
-       # If mapping does not exist, render error page
-       if url_map is None:
+        # If mapping does not exist, render error page
+        if url_map is None:
             return render_template('error.html')
 
         # Returns successful redirect to long_url
