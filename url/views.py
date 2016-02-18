@@ -40,7 +40,7 @@ def index():
             return render_template('index.html',
                     error="Error: Short URL exceeds 20 characters")
 
-        url_map = URLMap.query.filter_by(short_url=url).first()
+        url_map = URLMap.query.filter_by(short_url=short_url).first()
         if url_map is not None:
             return render_template('index.html',
                     error="Error: Short URL already exists")
