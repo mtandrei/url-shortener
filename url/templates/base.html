@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" >
                     <i class="fa fa-play-circle"></i>  <span class="light">URL</span> Shortener
                 </a>
             </div>
@@ -43,10 +43,10 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                    <a href="{{ url_for('index') }}"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#">Home</a>
+                    <a class="page-scroll" href="{{ url_for('index') }}">Home</a>
                     </li>
                 </ul>
             </div>
