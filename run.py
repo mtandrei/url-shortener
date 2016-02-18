@@ -1,5 +1,3 @@
-"""Activates Flask App
-"""
 #!venv/bin/python
 from url import app
 
