@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1> Success! Your entry was added to the database</h1>
+	<div>
+		<p> You entered: {{recent.longURL}} as the long URL </p>
+		<p> Your short URL is: {{recent.shortURL}} </p>
+	</div>
+	<br>
+	<p> List of Entries so far: <p>
+	{% for url in urls %}
+	<div>
+		<p>Long url: {{url.longURL}}</p>
+		<p>Short url: {{url.shortURL}}</p>
+		<p> __________________________ </p>
+	</div>
+	{% endfor %}
+	<p> Here's your most recent entry ^ </p>
+{% endblock %}
