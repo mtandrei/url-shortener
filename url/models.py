@@ -9,4 +9,3 @@ class URLMap(db.Model):
     def __repr__(self):
         return '<Long URL: %r, Short URL: %r>' % (self.longURL, self.shortURL)
 
-
