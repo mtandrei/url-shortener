@@ -4,6 +4,15 @@
 	</head>
 	<body>
 	<h1>Welcome to URL Shortener!</h1>
+
+    {% if error %}
+    <p> Something's fucked </p>
+    {% endif %}
+
+    {% if url %}
+    <p> Your shortened URL is {{ url_for('red', url=url, _external=True) }} </p>
+    {% endif %}
+
 		<hr>
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}

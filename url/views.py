@@ -16,9 +16,12 @@ def index():
         if not longURL.startswith('http://') and not longURL.startswith('https://'):
             longURL = 'http://' + longURL
 
-        ret = urlopen(longURL)
-        if ret.code >= 400:
-            return render_template('index.html', error=error)# ERROR
+        try:
+            ret = urlopen(longURL)
+            if ret.code >= 400:
+                return render_template('index.html', error=1) # ERROR
+        except:
+            return render_template('index.html', error=2)
 
         if shortURL == "":
             shortURL = get_random_string()
@@ -26,8 +29,8 @@ def index():
         url = URLMap(longURL=longURL, shortURL=shortURL)
         db.session.add(url)
         db.session.commit()
-        flash("Your shortened URL is " + url_for('red', url=shortURL, _external=True))
-        return render_template('index.html', url=url)
+        #flash("Your shortened URL is " + url_for('red', url=shortURL, _external=True))
+        return render_template('index.html', url=shortURL)
 
 @app.route('/<url>', methods=['GET'])
 def red(url):
