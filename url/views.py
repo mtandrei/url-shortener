@@ -30,11 +30,20 @@ def index():
 
         # If it doesn't exist, return to homepage with error code
         if long_url == "":
-            return render_template('index.html', error=1)
+            return render_template('index.html', error="Error: URL does not exist")
 
         # If user did not specify custom short_url, generate one randomly
         if short_url == "":
             short_url = gen_random_string()
+
+        if len(short_url) > 20:
+            return render_template('index.html',
+                    error="Error: Short URL exceeds 20 characters")
+
+        url_map = URLMap.query.filter_by(short_url=url).first()
+        if url_map is not None:
+            return render_template('index.html',
+                    error="Error: Short URL already exists")
 
         # Create and add database record of mapping
         url = URLMap(long_url=long_url, short_url=short_url)
