@@ -29,3 +29,4 @@ Quit out of mysql with "quit". Then run:
 To check the database subsequently, run "mysql -uurl -purl"
 To change database structure, edit url/models.py, then run migrate and upgrade again.
 If you happen to remove the migrations folder, then run init, migrate, then upgrade.
+# HackHers
